@@ -1,21 +1,32 @@
-import './App.css';
-import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
-import { StockDetailPage } from './pages/StockDetailPage';
-import { StockOverviewPage } from './pages/StockOverviewPage';
-import './index.css'
-import { WatchListContextProvider } from './context/watchListContext';
+import "./App.css";
+import Header from "./components/Header";
+import Main from "./components/Main";
+import SignUp from "./pages/SignUp";
+
+
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Map from "./pages/Map";
+
 function App() {
   return (
-  <main className=''>
-    <WatchListContextProvider>
-    <Router>
+    <div className=" font-sans ">
+
       <Routes>
-        <Route path='/' element={<StockOverviewPage/>}/>
-        <Route path='/detail/:symbol' element={<StockDetailPage/>}/>
+        <Route path="/" element={ <Home/>} />
+        <Route path="/signUp" element={<SignUp/>} />
+        <Route path="/map" element={<Map/>} />
       </Routes>
-    </Router>
-    </WatchListContextProvider>
-  </main>
+
+  
+      {/* <Header /> */}
+      {/* <Routes>
+        <div className="max-w-[1300px] px-2 mx-auto">
+         <Route path='/' element={ <Main />} />
+          <Register path='/signIn' element={<Register/>} />
+        </div>
+      </Routes> */}
+    </div>
   );
 }
 
